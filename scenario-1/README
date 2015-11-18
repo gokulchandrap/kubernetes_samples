@@ -1,0 +1,10 @@
+1. Build a tomcat image with custom web app.
+2. Push the new image to docker hub.
+	sh pushImage.sh
+3. Create a replicatioin controller using above image.
+	kubectrl.sh create -f replication-controller.yaml
+4. Create a service to expose pods
+	kubectrl.sh create -f service.yaml
+5. Find the service URL for launching the application.
+	kubectl.sh describe service/tomcat-service
+	get ip allocated for minion-1 and port and invoke in your host machine (curl 10.247.91.252:30233). 	
