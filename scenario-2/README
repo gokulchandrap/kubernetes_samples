@@ -1,0 +1,9 @@
+1. Build a tomcat image with fooApp explained in scenario-1.
+2. Push the new image to docker hub.
+3. Add enviroment variable to yaml which is defined in the fooApp web application
+	 env:
+            - name: MESSAGE
+              value: "hello world"
+4. Create a replication controller using yaml
+	kubectl.sh create -f replication-controller.yaml
+5. Run web application and see if enviroment variable is printed in the web page  	
