@@ -23,7 +23,7 @@
         <artifactId>docker-maven-plugin</artifactId>
         <version>0.3.6</version>
         <configuration>
-          <imageName>afsamplewebapp</imageName>
+          <imageName>af-sample-webapp</imageName>
           <dockerDirectory>docker</dockerDirectory>
           <!--<baseImage>tomcat:7.0.65-jre7</baseImage>-->
           <!--<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>-->
