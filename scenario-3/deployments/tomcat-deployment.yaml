@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: sample-webapp:1.0-SNAPSHOT
+        image: sample-webapp:1.0-SNAPSHOT-20151120T083140Z
         ports:
         - containerPort: 8080
