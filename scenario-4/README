@@ -1,0 +1,20 @@
+1. Go to docker dir.
+	cd kubernetes_samples/scenario-4/docker
+	
+2. Update logstash.conf with the ip address of your elasticsearch instance running.
+
+3. Build the docker image
+	$ docker build -t tomcat_image .
+
+4. Push the new image to docker hub. (Go through following link to push docker images)
+	See : https://docs.docker.com/engine/userguide/dockerrepos/
+
+5. Update tomcat-rc.yaml file with your new docker image
+
+7. Download and start the an elasticsearch instance. (v1.7.2)
+
+6. kubectl create -f tomcat-rc.yaml
+
+7. kubectl create -f tomcat-service.yaml
+
+6. Go to : http://10.243.1.3:<service_port>/sample.logging.app.one/logme and app will produce logs. Then logstash agent will push them into elasticsearch.  
