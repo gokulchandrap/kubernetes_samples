@@ -1,35 +1,20 @@
-This scenario uses sidecar concept to sync git artifacts. There is a seperate conainer for git syncing called git-sync.
-The git-sync data is saved in a common mounted volume which is common to git-sync container and webserver container.
-The webserver container get the artifact from common mounted volume and depoy in the web server.
+This scenario shows how to use "gitRepo" type volume to use git based sync mechanism for syncing artifacts
 
-To try out the scenario follow the steps below :
+1. Go to tomcat folder and build the docker file.
+   docker build -t <repository>/<image-name> .
+   eg : docker build -t roshancd/kube .
 
-1. Go to git-sync folder and build the git-sync docker and push to some docker registry. (eg: docker hub)
+2. Push built docker image to docker hub.
+   docker push <repository>/<image-name>
+   eg : docker push roshancd/kube
 
-docker build -t <some-registry>/git-sync .
-docker push <some-registry>/git-sync
+3. Go to the root foler and change the docker image name, gir repo url and git repo revision with your values in the "tomcat-rc.yaml" file.   
 
-eg : docker build -t roshancd/git-sync .
-     docker push roshancd/git-sync
-
-
-2. Go to tomcat folder and build the tomcat docker and push to some docker registry. (eg : docker hub)
-
-docker build -t <some-registry>/tomcat .
-docker push <some-registry>/tomcat
-
-eg : docker build -t roshancd/kube .
-     docker push roshancd/kube
-
-
-3. Go to config folder and create the pod as a replicaiton controller 
-
+4. Go to the root folder and create the tomcat replication controller.
    kubectl create -f tomcat-rc.yaml
 
-4. Go to config folder and create the service
-
+5. to the root folder and create the service.
    kubectl create -f tomcat-service.yaml
-
 
 
 
